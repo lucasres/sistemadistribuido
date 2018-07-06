@@ -176,39 +176,14 @@
 
         //calcula o tempo com os ajuste no relogio logico
         function calcTime(data) {
-          auxM = media.toString().split(":");
-          auxD = data.toString().split(":");
-          //hora media e min
-          hM = auxM[0];
-          mM = auxM[1];
-          //hora data e min
-          hD = auxD[0];
-          mD = auxD[1];
+          mO = one(media);
+          eO = one(data);
+          rs = mO - eO;
+          console.log(roll(rs.toString()));
+
+          return roll(rs.toString());
           
-          //verifica se o min é 0
-          if(!mM){
-            mM = 0;
-          }
-          if(!mD){
-            mD = 0;
-          }
-          rsM = parseInt(mM) - parseInt(mD);
-          rsH = parseInt(hM) - parseInt(hD);
           
-
-
-          if(rsM>=60){
-            rsM = rsM - 60;
-            rsH += 1;
-          } else if (rsM<-60){
-            rsM = 60 + rsM;
-            rsH -= 1;
-          }
-
-
-          console.log(rsH + ":" +rsM);
-
-          return (rsH + ":" + rsM);
           
         }
         
